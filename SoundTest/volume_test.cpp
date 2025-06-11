@@ -47,10 +47,10 @@ int main()
     cout << "총기 발사 감지 프로그램 시작 (2-Arduino 시스템)\n";
 
     // 1. 솔레노이드 아두이노 연결
-    g_hSolenoidArduino = CreateFileW(L"\\\\.\\COM3", GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+    g_hSolenoidArduino = CreateFileW(L"\\\\.\\COM3", GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0); // 사용자 아두이노 포트 연결
     if (g_hSolenoidArduino == INVALID_HANDLE_VALUE)
     {
-        cerr << "솔레노이드 아두이노 연결 실패 (COM3)\n";
+        cerr << "솔레노이드 아두이노 연결 실패\n";
     }
     else
     {
@@ -66,7 +66,7 @@ int main()
     }
 
     // 2. 진동 모터 아두이노 연결
-    g_hVibrationArduino = CreateFileW(L"\\\\.\\COM5", GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+    g_hVibrationArduino = CreateFileW(L"\\\\.\\COM5", GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0); // 사용자 아두이노 포트 연결
     if (g_hVibrationArduino == INVALID_HANDLE_VALUE)
     {
         cerr << "진동 모터 아두이노 연결 실패\n";
